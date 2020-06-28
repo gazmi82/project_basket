@@ -16,12 +16,16 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
+    
+    @yield('styles')
 </head>
 <body>
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -54,7 +58,7 @@
                       </form>
                   </li>
                   <li class="nav-item active">
-                    <a class="nav-link" href="#">Shopping cart <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('cart.index') }}">Shopping cart </a>
                 </li>
                 
                 <!-- Authentication Links -->
@@ -72,7 +76,6 @@
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->username}} <span class="caret"></span>
                     </a>
-
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
@@ -80,12 +83,15 @@
                         {{ __('Logout') }}
                     </a>
 
+
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
                 </div>
             </li>
+            
             @endguest
+             
         </ul>
     </div>
 </div>

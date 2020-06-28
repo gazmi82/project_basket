@@ -13,12 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::view('/', 'logout');
+
+
+Route::get('/', 'ProductController@index')->name('home');
+
 
 Auth::routes();
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/home', 'ProfilesController@index')->name('home');
-
 Route::get('/', 'ProfilesController@index')->name('welcome');
+
+
+Route::get('/home', 'ProductController@index')->name('home');
+Route::get('/', 'ProductController@index')->name('home');
+
+Route::get('/cart', 'CartController@index')->name('cart.index');
+
+//Route::get('/home','DasboardController@index')->name('dashboard');
