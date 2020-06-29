@@ -58,7 +58,9 @@
                       </form>
                   </li>
                   <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('cart.index') }}">Shopping cart </a>
+                    <a class="nav-link" href="{{ route('product.shoppingCart') }}">Shopping cart 
+                        <span class="badge">{{ Session::has('cart') ? Session::get('cart')-> totalQty : ''}}</span>
+                    </a>
                 </li>
                 
                 <!-- Authentication Links -->

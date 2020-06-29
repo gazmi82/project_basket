@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::view('/', 'logout');
 
 
 Route::get('/', 'ProductController@index')->name('home');
+
 
 
 Auth::routes();
@@ -29,6 +29,13 @@ Route::get('/', 'ProfilesController@index')->name('welcome');
 Route::get('/home', 'ProductController@index')->name('home');
 Route::get('/', 'ProductController@index')->name('home');
 
-Route::get('/cart', 'CartController@index')->name('cart.index');
+Route::get('/add-cart/{id}', [
+	      'uses' => 'ProductController@getAddToCart',
+	      'as' => 'product.addToCart'
+	  ]);
+Route::get('/cart1', [
+	      'uses' => 'ProductController@getCart',
+	      'as' => 'product.shoppingCart'
+	  ]);
 
 //Route::get('/home','DasboardController@index')->name('dashboard');
