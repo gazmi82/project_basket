@@ -20,6 +20,7 @@ Route::get('/', 'ProductController@index')->name('home');
 
 
 Auth::routes();
+
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/home', 'ProfilesController@index')->name('home');
@@ -38,4 +39,4 @@ Route::get('/cart1', [
 	      'as' => 'product.shoppingCart'
 	  ]);
 
-//Route::get('/home','DasboardController@index')->name('dashboard');
+	

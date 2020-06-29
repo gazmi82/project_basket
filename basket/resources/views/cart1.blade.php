@@ -13,14 +13,14 @@
         <ul class="list-group">
             @foreach($products as $product)
                <li class="list-group-item">
-                   <span class="badge">{{ $product['qty'] }}</span>
+                   <span class="badge badge-dark">{{ $product['qty'] }}</span>
+                   <br><br>
                    <strong>{{ $product['item']['title'] }}</strong>
-                   <span class="label label-success">{{ $product['price'] }}</span>
+                   <span class="label label-success border border-danger" style="margin-left: 40px">${{ $product['price'] }}</span>
+                   <br></br>
                    <div class="btn-group">
-                    <button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
-                    <ul class class="dropdown-menu">
-                        <a href="#">Delete item</a>
-                    </ul>
+                    <a href="#" class="btn btn-primary">Delete 1 item</a>
+                    <a href="#" class="btn btn-primary">Delete all items</a>
                    </div>
                </li>
             @endforeach
@@ -32,7 +32,7 @@
 
 <div class="row">
     <div class="col-ms6 col-md-6 col-md-offset-3 col-sm-offset-3">
-        <strong>Total: {{ $totalPrice }}</strong>
+        <strong>Total: ${{ $totalPrice }}</strong>
     </div>
 </div>
 

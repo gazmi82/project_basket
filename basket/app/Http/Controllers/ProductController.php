@@ -40,4 +40,15 @@ class ProductController extends Controller
     	$cart = new Cart($oldCart);
     	return view('cart1', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
 }
