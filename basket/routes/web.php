@@ -39,4 +39,5 @@ Route::get('/cart1', [
 	      'as' => 'product.shoppingCart'
 	  ]);
 
+
 	
