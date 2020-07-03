@@ -45,19 +45,19 @@
                             <tbody>
                             	@foreach($products as $product)
                                 <tr>
-                                    <td><img src="https://via.placeholder.com/400x200/" class="img-cart"></td>
-                                    <td><strong>{{ $product['item']['title'] }}</strong></td>
+                                    <td><img src="{{ $product['item']['imagePath'] }}" class="img-cart"></td>
+                                    <td><strong style="margin-top: 6px">{{ $product['item']['title'] }}</strong></td>
                                     <td>
-                                    <form class="form-inline">
+                                    <div class="form-inline">
                                         <input class="form-control" type="text" value="{{ $product['qty'] }}" style="margin-right: 20px" >
-                                        <!--<button rel="tooltip" class="btn btn-default"><i class="fa fa-pencil"></i></button>-->
-                                        <form method="POST" action="{{ route('product.shoppingCart') }}" > 
+
+                                        <form method="POST" action="{{ route('cart.destroy', ['id' => $product['item']['id']]) }}" > 
                                         	@csrf
                                         	{{ method_field('DELETE') }}
-                                        	<input type="submit" value="Delete" onclick="return confirm('Are you sure?')" class="btn btn-primary" />
-                                        
+                                        	<input type="submit" value="Delete all items" onclick="return confirm('Are you sure?')" class="btn btn-danger" />
+                                            <input type="submit" value="Delete 1 item" onclick="return confirm('Are you sure?')" class="btn btn-danger" />
                                         </form>
-                                    </form>
+                                    </div>
                                     </td>
                                     <td>${{ $product['price'] }}</td>
                                 </tr>
@@ -76,12 +76,13 @@
                 <a href="#" class="btn btn-primary pull-right">Proceed Checkout<span class="glyphicon glyphicon-chevron-right"></span></a>
 
                 @else
-
+             <div class="container">
 				<div class="row">
 				    <div class="col-ms6 col-md-6 col-md-offset-3 col-sm-offset-3">
 				        <h2>No Items in Cart</h2>
 				    </div>
 				</div>
+			</div>	
 
 				@endif
 

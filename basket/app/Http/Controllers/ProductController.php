@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Cart;
 use App\Product;
 
 use Illuminate\Http\Request;
+use \Illuminate\Http\Response;
 use Session;
 
 class ProductController extends Controller
@@ -16,8 +16,8 @@ class ProductController extends Controller
 	*/
     public function index()
     {
-    	$products = Product::inRandomorder()->take(3)->get();
-    	return view('home')->with('products', $products);
+    	$products = Product::all();
+    	return view('home', ['products'=> $products]);
     }
 
     public function getAddToCart(Request $request, $id) 
@@ -25,8 +25,8 @@ class ProductController extends Controller
     	$product = Product::find($id);
     	$oldCart = Session::has('cart') ? Session::get('cart') : null;
     	$cart = new Cart($oldCart);
-    	$cart->add($product, $product->id);
-
+        $cart->add($product, $product->id);
+        
     	$request->session()->put('cart', $cart);
     	return redirect()->route('home');
     }
@@ -34,24 +34,33 @@ class ProductController extends Controller
     public function getCart()
     {
     	if (!Session::has('cart')) {
-    		return view('cart1');
+    		return view('cart');
     	}
     	$oldCart = Session::get('cart');
-    	$cart = new Cart($oldCart);
-    	return view('cart1', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+
+    	$cart = new Cart($oldCart); 
+    	return view('cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
     }
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @var   $product
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Http\Request
      */
-    public function destroy(Product $product)
-    {
-        $product->delete();
+   public function destroy(Request $request, $id) {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->delete($id);
+        $request->session()->put('cart', $cart);
+        return redirect()->route('shoppingCart');
 
-
-        return redirect()->route('cart1');
+        
+        //return response()->json(array( 'totalqty' => $cart->totalQty, 'totalPrice' => $cart->totalPrice));
+        //{"totalqty":0,"totalPrice":-222000}
     }
+
 }
+
+
+  
+

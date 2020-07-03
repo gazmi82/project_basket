@@ -32,12 +32,12 @@ Route::get('/', 'ProductController@index')->name('home');
 
 Route::get('/add-cart/{id}', [
 	      'uses' => 'ProductController@getAddToCart',
-	      'as' => 'product.addToCart'
+	      'as' => 'addToCart'
 	  ]);
-Route::get('/cart1', [
+Route::get('/cart', [
 	      'uses' => 'ProductController@getCart',
-	      'as' => 'product.shoppingCart'
+	      'as' => 'shoppingCart'
 	  ]);
+Route::delete('/del/{id}', 'ProductController@destroy')->name('cart.destroy');
 
 
-	

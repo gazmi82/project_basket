@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Cart' => $baseDir . '/app/Cart.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
@@ -16,7 +17,6 @@ return array(
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\CartController' => $baseDir . '/app/Http/Controllers/CartController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
-    'App\\Http\\Controllers\\DasboardController' => $baseDir . '/app/Http/Controllers/DasboardController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\ProductController' => $baseDir . '/app/Http/Controllers/ProductController.php',
     'App\\Http\\Controllers\\ProfilesController' => $baseDir . '/app/Http/Controllers/ProfilesController.php',
@@ -54,6 +54,7 @@ return array(
     'Brick\\Math\\Internal\\Calculator\\NativeCalculator' => $vendorDir . '/brick/math/src/Internal/Calculator/NativeCalculator.php',
     'Brick\\Math\\RoundingMode' => $vendorDir . '/brick/math/src/RoundingMode.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
+    'Carbon\\CarbonConverterInterface' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonConverterInterface.php',
     'Carbon\\CarbonImmutable' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonImmutable.php',
     'Carbon\\CarbonInterface' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterface.php',
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
@@ -99,6 +100,9 @@ return array(
     'Carbon\\FactoryImmutable' => $vendorDir . '/nesbot/carbon/src/Carbon/FactoryImmutable.php',
     'Carbon\\Language' => $vendorDir . '/nesbot/carbon/src/Carbon/Language.php',
     'Carbon\\Laravel\\ServiceProvider' => $vendorDir . '/nesbot/carbon/src/Carbon/Laravel/ServiceProvider.php',
+    'Carbon\\PHPStan\\Macro' => $vendorDir . '/nesbot/carbon/src/Carbon/PHPStan/Macro.php',
+    'Carbon\\PHPStan\\MacroExtension' => $vendorDir . '/nesbot/carbon/src/Carbon/PHPStan/MacroExtension.php',
+    'Carbon\\PHPStan\\MacroScanner' => $vendorDir . '/nesbot/carbon/src/Carbon/PHPStan/MacroScanner.php',
     'Carbon\\Traits\\Boundaries' => $vendorDir . '/nesbot/carbon/src/Carbon/Traits/Boundaries.php',
     'Carbon\\Traits\\Cast' => $vendorDir . '/nesbot/carbon/src/Carbon/Traits/Cast.php',
     'Carbon\\Traits\\Comparison' => $vendorDir . '/nesbot/carbon/src/Carbon/Traits/Comparison.php',
@@ -107,6 +111,7 @@ return array(
     'Carbon\\Traits\\Date' => $vendorDir . '/nesbot/carbon/src/Carbon/Traits/Date.php',
     'Carbon\\Traits\\Difference' => $vendorDir . '/nesbot/carbon/src/Carbon/Traits/Difference.php',
     'Carbon\\Traits\\IntervalRounding' => $vendorDir . '/nesbot/carbon/src/Carbon/Traits/IntervalRounding.php',
+    'Carbon\\Traits\\IntervalStep' => $vendorDir . '/nesbot/carbon/src/Carbon/Traits/IntervalStep.php',
     'Carbon\\Traits\\Localization' => $vendorDir . '/nesbot/carbon/src/Carbon/Traits/Localization.php',
     'Carbon\\Traits\\Macro' => $vendorDir . '/nesbot/carbon/src/Carbon/Traits/Macro.php',
     'Carbon\\Traits\\Mixin' => $vendorDir . '/nesbot/carbon/src/Carbon/Traits/Mixin.php',
