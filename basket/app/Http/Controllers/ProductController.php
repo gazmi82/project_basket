@@ -28,7 +28,7 @@ class ProductController extends Controller
         $cart->add($product, $product->id);
         
     	$request->session()->put('cart', $cart);
-    	return redirect()->route('home');
+    	return redirect()->route('shoppingCart');
     }
 
     public function getCart()
