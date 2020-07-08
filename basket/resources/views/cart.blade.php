@@ -54,8 +54,8 @@
                                         <form method="POST" action="{{ route('cart.destroy', ['id' => $product['item']['id']]) }}" > 
                                         	@csrf
                                         	{{ method_field('DELETE') }}
-                                        	<input type="submit" value="Delete all items" onclick="return confirm('Are you sure?')" class="btn btn-danger" />
-                                            <input type="submit" value="Delete 1 item" onclick="return confirm('Are you sure?')" class="btn btn-danger" />
+                                        	<input type="submit" value="Delete item" onclick="return confirm('Are you sure?')" class="btn btn-danger" />
+                                            
                                         </form>
                                     </div>
                                     </td>
