@@ -1,3 +1,5 @@
+
+
 Stripe.setPublishableKey('pk_test_51H3t5vAzmeZmoL9jwK8YCeFMxvDnuC6FsV0Rg0XvMejoZziTbS6SMQlAIkOjLj68lGqkE57Yu46jF51zg6HrnyBK00Yg8Iyy45');
 
 var $form = $('#checkout-form');
@@ -20,7 +22,7 @@ function stripeResponseHandler(status, response) {
 	if (response.error) {
 		$('#charge-error').removeClass('hidden');
 		$('#charge-error').text(response.error.message);
-		$form.find('button')prop('disalbed', false);
+		$form.find('button').prop('disalbed', false);
 	} else {// Token was created!
 
     // Get the token ID:
