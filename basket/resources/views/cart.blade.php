@@ -73,7 +73,7 @@
                 </div>
                 </div>
                 <a href="{{ route('home') }}" class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Continue Shopping</a>
-                <a href="#" class="btn btn-primary pull-right">Proceed Checkout<span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a href="{{ route('checkout') }}" class="btn btn-primary pull-right">Proceed Checkout<span class="glyphicon glyphicon-chevron-right"></span></a>
 
                 @else
              <div class="container">

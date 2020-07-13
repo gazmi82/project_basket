@@ -14,6 +14,15 @@
       </div>
     </div>
     <br></br>
+    @if(Session::has('success'))
+    <div class="row">
+      <div class="col-md-4" >
+        <div id="charge-message" class="alert alert-success">
+          {{ Session::get('success') }}
+        </div>
+      </div>
+    </div>
+    @endif
     <div class="row">
       <div class="card-deck">
         @foreach ($products as $product )
@@ -35,7 +44,7 @@
                     {{ $product->color }}
                   </p>
                    <a 
-                    href="#" 
+                    href="{{ route('checkout') }}" 
                     class="btn btn-danger" 
                     style="margin-left: 16px">
 
