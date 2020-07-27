@@ -75,13 +75,9 @@ class ProductController extends Controller
     public function postCheckout(Request $request)
     {
         \Stripe\Stripe::setMaxNetworkRetries(2);
-        //$curl = new \Stripe\HttpClient\CurlClient();
-        //$curl->setEnablePersistentConnections(false);
-        //\Stripe\ApiRequestor::setHttpClient($curl);
-
-          //require_once("vendor/autoload.php");
-          //require_once("/path/to/stripe-php/init.php");
-
+        $curl = new \Stripe\HttpClient\CurlClient([CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1]);
+        $curl->setEnableHttp2(false);
+        \Stripe\ApiRequestor::setHttpClient($curl);
 
 
         if (!Session::has('cart')) {
@@ -92,8 +88,7 @@ class ProductController extends Controller
 
 
 
-        Stripe::setApiKey('sk_test_51H3t5vAzmeZmoL9jgZeUIuKGj9HXZ0wY4UO5NeSKTYZoilhZUGWiR6v19yQZ7mhPa1JxJtc5K4i0ijkxSEvHNV4i00sP7ELJrF
-');
+        Stripe::setApiKey('sk_test_0in6WtydZdg3pICbYVgGXCU300E8efjUPM');
         try {
             Charge::create(array(
             "amount" => $cart->totalPrice * 100,
