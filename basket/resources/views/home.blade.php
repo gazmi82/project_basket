@@ -5,7 +5,7 @@
   @endsection
 
   @section('content')
-  <div class="container" style="max-width: 83%" >
+  <div class="container" style="max-width: 65%" >
     <div class="card bg-dark text-white">
       <img src="https://www.cars.com/cldstatic/ads/creative/20200316_4876_Nissan_Hero_2400x753.jpg" class="card-img" alt="">
       <div class="card-img-overlay">
@@ -13,7 +13,7 @@
         <p class="card-text"></p>
       </div>
     </div>
-    <br></br>
+    <br>
     @if(Session::has('success'))
     <div class="row">
       <div class="col-md-4" >
